@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+
+ext {
+  bintrayRepo = 'maven'
+  bintrayName = 'makeup'
+
+  publishedGroupId = 'org.azeff.makeup'
+  libraryName = 'makeup'
+  artifact = 'makeup'
+
+  libraryDescription = 'A wrapper for SpannableStringBuilder on Android'
+
+  siteUrl = 'https://github.com/azeff/makeup'
+  gitUrl = 'https://github.com/azeff/makeup.git'
+
+  libraryVersion = '0.1'
+
+  developerId = 'azeff'
+  developerName = 'Evgeny Kazakov'
+  developerEmail = 'azeffin@gmail.com'
+
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
+}
+
+android {
+  compileSdkVersion 22
+  buildToolsVersion "22.0.1"
+
+  defaultConfig {
+    minSdkVersion 14
+    targetSdkVersion 22
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+}
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile 'com.android.support:support-annotations:22.2.0'
+}
+
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'
